@@ -1,0 +1,14 @@
+[Unit]
+Description=Talon Wayland Input Bridge
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/talon/wayland-bridge/bridge.py
+Restart=on-failure
+RestartSec=2
+StandardOutput=append:/tmp/bridge.log
+StandardError=append:/tmp/bridge.log
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=Talon Voice (eye tracking + voice control)
+After=graphical-session.target talon-bridge.service
+Wants=talon-bridge.service
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/talon/talon/run.sh
+Restart=on-failure
+RestartSec=3
+StandardOutput=append:/tmp/talon.log
+StandardError=append:/tmp/talon.log
+
+[Install]
+WantedBy=graphical-session.target
