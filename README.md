@@ -189,6 +189,8 @@ roadmap" — and we needed one anyway. If this project helped you get back
 to work, please consider supporting it. Donations keep projects like this
 alive and help us build more accessibility tooling.
 
+**Ko-fi:** [ko-fi.com/cassettefuture](https://ko-fi.com/cassettefuture)
+
 **Monero (XMR):**
 
 ```
