@@ -1,5 +1,9 @@
 # talon-wayland-bridge
 
+> A project by [**AnarchySC**](https://anarchygames.org) — built out of
+> necessity for an accessibility user who refused to be told "Linux isn't
+> supported."
+
 Run [Talon Voice](https://talonvoice.com/) eye tracking on Linux Wayland.
 
 Talon is the de-facto eye-tracking + voice-control framework on Linux, but it
@@ -178,6 +182,26 @@ talon-wayland-bridge/
 └── README.md
 ```
 
+## Support the project
+
+This bridge exists because Tobii told us a Linux version "isn't on the
+roadmap" — and we needed one anyway. If this project helped you get back
+to work, please consider supporting it. Donations keep projects like this
+alive and help us build more accessibility tooling.
+
+- **Website & contact:** [anarchygames.org](https://anarchygames.org)
+- **GitHub Sponsors:** see the "Sponsor" button at the top of this repo
+- **One-time donations:** see the project website
+
+If you can't donate, other equally appreciated ways to help:
+
+- ⭐ Star the repo so other accessibility users can find it
+- 🐛 File issues with your compositor / eye tracker details if it doesn't
+  work for you
+- 📝 Send PRs for KWin / wlroots / Hyprland support, scroll events, or
+  additional eye tracker models
+- 💬 Tell your accessibility community about it
+
 ## License
 
 MIT. See `LICENSE`.
@@ -190,3 +214,10 @@ MIT. See `LICENSE`.
   https://talon.wiki/Resource%20Hub/Hardware/tobii_5/
 - Everyone in r/Linux_Accessibility and the Talon Slack who has been
   asking for Wayland support for years
+
+---
+
+<p align="center">
+  Made with stubbornness by <a href="https://anarchygames.org"><b>AnarchySC</b></a><br>
+  <sub>Because "not supported" is an unacceptable answer when accessibility is on the line.</sub>
+</p>
