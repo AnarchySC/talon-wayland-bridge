@@ -1,10 +1,10 @@
 from talon import actions, cron
 
-def enable_eye_mouse():
+def disable_eye_mouse():
     try:
-        actions.tracking.control_toggle(True)
-        print("[user] eye mouse enabled")
+        actions.tracking.control_toggle(False)
+        print("[user] eye mouse DISABLED (using head tracking as primary cursor)")
     except Exception as e:
-        print(f"[user] enable failed: {e}")
+        print(f"[user] disable failed: {e}")
 
-cron.after("2s", enable_eye_mouse)
+cron.after("2s", disable_eye_mouse)

@@ -24,6 +24,14 @@ ABS_MAX = 32767  # tablet-style normalized range
 _layout = {"w": 1920, "h": 1080}
 _layout_lock = threading.Lock()
 
+# Head tracking offset state (DEPRECATED — head tracker now sends absolute
+# "m" messages directly; kept for backward compatibility with "h" protocol).
+HEAD_GAIN_X = 0
+HEAD_GAIN_Y = 0
+_head = {"dx": 0, "dy": 0}
+_head_lock = threading.Lock()
+_head_log_n = [0]
+
 
 def _query_mutter_layout():
     """Compute the bounding box of all logical monitors from Mutter."""
@@ -154,13 +162,28 @@ def main():
                     _, xs, ys = msg.split()
                     with _layout_lock:
                         lw, lh = _layout["w"], _layout["h"]
-                    gx = max(0, min(lw - 1, int(float(xs))))
-                    gy = max(0, min(lh - 1, int(float(ys))))
+                    with _head_lock:
+                        hdx, hdy = _head["dx"], _head["dy"]
+                    # Compose eye gaze with head pose offset
+                    gx = max(0, min(lw - 1, int(float(xs)) + hdx))
+                    gy = max(0, min(lh - 1, int(float(ys)) + hdy))
                     ax = int(round(gx * ABS_MAX / max(lw - 1, 1)))
                     ay = int(round(gy * ABS_MAX / max(lh - 1, 1)))
                     ui.write(e.EV_ABS, e.ABS_X, ax)
                     ui.write(e.EV_ABS, e.ABS_Y, ay)
                     ui.syn()
+                elif msg.startswith("h "):
+                    _, ys, ps = msg.split()
+                    yaw = float(ys)
+                    pitch = float(ps)
+                    dx = int(yaw * HEAD_GAIN_X)
+                    dy = int(-pitch * HEAD_GAIN_Y)
+                    with _head_lock:
+                        _head["dx"] = dx
+                        _head["dy"] = dy
+                    if _head_log_n[0] < 30:
+                        print(f"[bridge] head yaw={yaw:+.3f} pitch={pitch:+.3f} -> dx={dx:+d} dy={dy:+d}", flush=True)
+                        _head_log_n[0] += 1
                 elif msg.startswith("c "):
                     _, btn = msg.split()
                     btn_code = {"left": e.BTN_LEFT, "right": e.BTN_RIGHT, "middle": e.BTN_MIDDLE}.get(btn)

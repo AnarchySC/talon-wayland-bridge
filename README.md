@@ -31,6 +31,7 @@ between Wayland's improvements and a working eye tracker, this is for you.
 | Hot-plugging monitors | ✓ Bridge listens for `MonitorsChanged` |
 | Scroll | Not yet wired |
 | KWin / wlroots compositors | Untested (only verified on GNOME Mutter) |
+| **Head tracking (webcam + Mediapipe)** | ⚠ **Experimental / WIP.** See `head_tracker.py` and `calibrate_widget.py`. Calibration and frame-rate stability not yet dialed in. |
 
 ## How it works
 
