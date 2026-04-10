@@ -189,9 +189,17 @@ roadmap" — and we needed one anyway. If this project helped you get back
 to work, please consider supporting it. Donations keep projects like this
 alive and help us build more accessibility tooling.
 
-- **Website & contact:** [anarchygames.org](https://anarchygames.org)
-- **GitHub Sponsors:** see the "Sponsor" button at the top of this repo
-- **One-time donations:** see the project website
+**Monero (XMR):**
+
+```
+85UEVs19Jqva7CeDDMdYPfZUXyW3VFnQN5GS8ttzrSSDV8kJWUitvobj2QZvGV4cH7ELgXs2qBorGAAtXNrWQtRmB6FVTnY
+```
+
+> **Always verify the XMR address against the one in this repo's `README.md`
+> on the `main` branch before sending.** If you see a different address
+> anywhere else claiming to be ours, it isn't.
+
+**Other ways to reach us:** [anarchygames.org](https://anarchygames.org)
 
 If you can't donate, other equally appreciated ways to help:
 
